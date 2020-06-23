@@ -33,5 +33,7 @@ dependencies {
         apiv("com.github.weisj:darklaf-property-loader", "darklaf")
         apiv("com.github.weisj:darklaf-utils", "darklaf")
         apiv("com.fifesoft:rsyntaxtextarea")
+        apiv("org.junit.jupiter:junit-jupiter-api", "junit")
+        apiv("org.junit.jupiter:junit-jupiter-engine", "junit")
     }
 }

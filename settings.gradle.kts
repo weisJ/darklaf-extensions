@@ -8,6 +8,7 @@ pluginManagement {
         idv("com.github.vlsi.gradle-extensions", "com.github.vlsi.vlsi-release-plugins")
         idv("com.github.vlsi.license-gather", "com.github.vlsi.vlsi-release-plugins")
         idv("com.github.vlsi.stage-vote-release", "com.github.vlsi.vlsi-release-plugins")
+        idv("org.jetbrains.kotlin.jvm", "kotlin")
     }
 }
 
@@ -15,7 +16,8 @@ rootProject.name = "darklaf-extensions"
 
 include(
     "dependencies-bom",
-    "rsyntaxarea"
+    "rsyntaxarea",
+    "kotlin"
 )
 
 for (p in rootProject.children) {
@@ -24,4 +26,15 @@ for (p in rootProject.children) {
         // E.g. we don't expect to publish examples as a Maven module
         p.name = "${rootProject.name}-${p.name}"
     }
+}
+
+fun property(name: String) =
+    when (extra.has(name)) {
+        true -> extra.get(name) as? String
+        else -> null
+    }
+
+property("localDarklaf")?.ifBlank { "../darklaf" }?.let {
+    println("Importing project '$it'")
+    includeBuild(it)
 }
