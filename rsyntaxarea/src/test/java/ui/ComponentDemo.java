@@ -24,15 +24,6 @@
  */
 package ui;
 
-import com.github.weisj.darklaf.LafManager;
-import com.github.weisj.darklaf.icons.IconLoader;
-import com.github.weisj.darklaf.settings.ThemeSettings;
-import com.github.weisj.darklaf.theme.Theme;
-import com.github.weisj.darklaf.theme.info.PreferredThemeStyle;
-
-import javax.swing.*;
-import javax.swing.event.MenuEvent;
-import javax.swing.event.MenuListener;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.WindowAdapter;
@@ -40,6 +31,16 @@ import java.awt.event.WindowListener;
 import java.util.Enumeration;
 import java.util.Objects;
 import java.util.Optional;
+
+import javax.swing.*;
+import javax.swing.event.MenuEvent;
+import javax.swing.event.MenuListener;
+
+import com.github.weisj.darklaf.LafManager;
+import com.github.weisj.darklaf.icons.IconLoader;
+import com.github.weisj.darklaf.settings.ThemeSettings;
+import com.github.weisj.darklaf.theme.Theme;
+import com.github.weisj.darklaf.theme.info.PreferredThemeStyle;
 
 public interface ComponentDemo {
 
@@ -112,8 +113,7 @@ public interface ComponentDemo {
     }
 
     default WindowListener createWindowListener() {
-        return new WindowAdapter() {
-        };
+        return new WindowAdapter() {};
     }
 
     static JMenu createThemeMenu() {
