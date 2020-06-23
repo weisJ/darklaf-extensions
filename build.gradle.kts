@@ -165,6 +165,10 @@ allprojects {
                         configFile("${project.rootDir}/darklaf_java.eclipseformat.xml")
                     }
                 }
+                kotlin {
+                    ktlint()
+                    license()
+                }
             }
         }
 
