@@ -24,38 +24,35 @@
  */
 package com.github.weisj.darklaf.extensions.rsyntaxarea;
 
-import java.awt.*;
-
-import javax.swing.*;
-
-import org.fife.ui.rsyntaxtextarea.RSyntaxTextArea;
-import org.fife.ui.rsyntaxtextarea.RSyntaxUtilities;
-import org.fife.ui.rsyntaxtextarea.Theme;
-import org.fife.ui.rtextarea.Gutter;
-
 import com.github.weisj.darklaf.components.tooltip.ToolTipStyle;
 import com.github.weisj.darklaf.ui.tooltip.ToolTipConstants;
 import com.github.weisj.darklaf.util.PropertyUtil;
+import org.fife.ui.rsyntaxtextarea.RSyntaxTextArea;
+import org.fife.ui.rsyntaxtextarea.RSyntaxUtilities;
+import org.fife.ui.rsyntaxtextarea.SyntaxScheme;
+import org.fife.ui.rsyntaxtextarea.Theme;
+import org.fife.ui.rtextarea.Gutter;
+
+import javax.swing.*;
+import java.awt.*;
 
 public class DarkRSyntaxTheme extends RSyntaxTheme {
-
-    private final Theme base;
 
     /**
      * Creates a theme from an RSyntaxTextArea. It should be contained in an <code>RTextScrollPane</code> to get all
      * gutter color information.
      *
-     * @param textArea the text area.
-     * @param base     the base theme.
+     * @param textArea     the text area.
+     * @param syntaxScheme the syntax scheme.
      */
-    public DarkRSyntaxTheme(final RSyntaxTextArea textArea, final Theme base) {
+    public DarkRSyntaxTheme(final RSyntaxTextArea textArea, final SyntaxScheme syntaxScheme) {
         super(textArea);
-        this.base = base;
+        this.scheme = syntaxScheme;
     }
 
     @Override
     public void apply(RSyntaxTextArea textArea) {
-        base.apply(textArea);
+        super.apply(textArea);
         textArea.setBackground(UIManager.getColor("textBackgroundSecondary"));
         textArea.setCaretColor(UIManager.getColor("caret"));
         textArea.setUseSelectedTextColor(false);
