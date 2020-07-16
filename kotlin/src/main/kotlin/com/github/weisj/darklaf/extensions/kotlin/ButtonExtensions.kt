@@ -51,10 +51,6 @@ var AbstractButton.useRoundedCorners: Boolean
     get() = !PropertyUtil.getBooleanProperty(this, ButtonConstants.KEY_NO_ARC)
     set(roundedCorners) = putClientProperty(ButtonConstants.KEY_NO_ARC, !roundedCorners)
 
-var AbstractButton.backgroundPainted: Boolean
-    get() = !PropertyUtil.getBooleanProperty(this, ButtonConstants.KEY_NO_BACKGROUND)
-    set(backgroundPainted) = putClientProperty(ButtonConstants.KEY_NO_BACKGROUND, !backgroundPainted)
-
 var AbstractButton.cornerStyle: ButtonCornerStyle
     get() = ButtonCornerStyle.of(PropertyUtil.getObject(this, ButtonConstants.KEY_CORNER, AlignmentExt::class.java))
     set(style) = putClientProperty(ButtonConstants.KEY_CORNER, style.alignment)
