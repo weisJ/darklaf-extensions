@@ -24,23 +24,45 @@
  */
 package com.github.weisj.darklaf.extensions.rsyntaxarea;
 
-import javax.swing.text.DefaultHighlighterDark.DarkHighlightPainter;
-import javax.swing.text.Highlighter;
+import javax.swing.*;
 
-import org.fife.ui.rtextarea.ConfigurableCaret;
+import org.fife.ui.rtextarea.IconGroup;
 
-public class DarkConfigurableCaret extends ConfigurableCaret {
+import com.github.weisj.darklaf.icons.IconLoader;
+import com.github.weisj.darklaf.util.DarkUIUtil;
 
-    private final DarkHighlightPainter selectionPainter;
+public class DarklafIconGroup extends IconGroupDelegate {
 
-    public DarkConfigurableCaret() {
-        selectionPainter = new DarkHighlightPainter();
-        selectionPainter.setRoundedEdges(true);
-        selectionPainter.setLineExtendingEnabled(true);
+    private static final int SIZE = 16;
+
+    public DarklafIconGroup(final IconGroup delegate) {
+        super(delegate);
     }
 
     @Override
-    protected Highlighter.HighlightPainter getSelectionPainter() {
-        return selectionPainter;
+    public Icon getIcon(final String name) {
+        IconLoader iconLoader = DarkUIUtil.ICON_LOADER;
+        switch (name) {
+            case "cut" :
+            case "cutDisabled" :
+            case "copy" :
+            case "copyDisabled" :
+            case "paste" :
+            case "pasteDisabled" :
+            case "delete" :
+            case "deleteDisabled" :
+            case "undo" :
+            case "undoDisabled" :
+            case "redo" :
+            case "redoDisabled" :
+                return iconLoader.getIcon("menu/" + name + ".svg", SIZE, SIZE, true);
+            default :
+                return super.getIcon(name);
+        }
+    }
+
+    @Override
+    public Icon getLargeIcon(final String name) {
+        return super.getLargeIcon(name);
     }
 }

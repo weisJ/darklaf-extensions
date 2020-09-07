@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+  ~ MIT License
+  ~
+  ~ Copyright (c) 2020 Jannis Weis
+  ~
+  ~ Permission is hereby granted, free of charge, to any person obtaining a copy
+  ~ of this software and associated documentation files (the "Software"), to deal
+  ~ in the Software without restriction, including without limitation the rights
+  ~ to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+  ~ copies of the Software, and to permit persons to whom the Software is
+  ~ furnished to do so, subject to the following conditions:
+  ~
+  ~ The above copyright notice and this permission notice shall be included in all
+  ~ copies or substantial portions of the Software.
+  ~
+  ~ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  ~ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  ~ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+  ~ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  ~ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+  ~ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+  ~ SOFTWARE.
+  ~
+  -->
+<!DOCTYPE RSyntaxTheme SYSTEM "theme.dtd">
+
+<RSyntaxTheme version="1.0">
+    <background color="000000"/>
+    <caret color="000000"/>
+    <selection fg="000000" bg="000000" />
+    <currentLineHighlight color="000000"/>
+    <marginLine fg="000000"/>
+    <markAllHighlight color="000000"/>
+    <markOccurrencesHighlight color="000000"/>
+    <matchedBracket fg="000000" bg="000000"/>
+    <hyperlinks fg="000000"/>
+
+    <secondaryLanguages>
+        <language index="1" bg="000000" />
+        <language index="2" bg="000000" />
+        <language index="3" bg="000000" />
+    </secondaryLanguages>
+
+    <gutterBorder color="000000" />
+    <lineNumbers fg="000000" />
+    <foldIndicator fg="000000" iconBg="000000" />
+    <iconRowHeader activeLineRange="000000"/>
+
+    <!-- Syntax tokens. -->
+    <tokenStyles>
+        <style token="IDENTIFIER" fg="a9b7c6"/>
+        <style token="RESERVED_WORD" fg="CC7832" bold="true"/>
+        <style token="RESERVED_WORD_2" fg="CC7832" bold="true"/>
+        <style token="ANNOTATION" fg="808000"/>
+        <style token="COMMENT_DOCUMENTATION" fg="84B977" italic="true"/>
+        <style token="COMMENT_EOL" fg="808080" italic="true"/>
+        <style token="COMMENT_MULTILINE" fg="629755" italic="true"/>
+        <style token="COMMENT_KEYWORD" fg="84B977" bold="true" underline="true" italic="true"/>
+        <style token="COMMENT_MARKUP" fg="84B977" bg="e2ffe2" italic="true"/>
+        <style token="DATA_TYPE" fg="BFA4A4" bold="true" italic="true"/>
+        <style token="FUNCTION" fg="FFC66D"/>
+        <style token="LITERAL_BOOLEAN" fg="CC7832" bold="true"/>
+        <style token="LITERAL_NUMBER_DECIMAL_INT" fg="6897BB"/>
+        <style token="LITERAL_NUMBER_FLOAT" fg="6897BB"/>
+        <style token="LITERAL_NUMBER_HEXADECIMAL" fg="6897BB"/>
+        <style token="LITERAL_STRING_DOUBLE_QUOTE" fg="008000" bold="false"/>
+        <style token="LITERAL_CHAR" fg="008000" bold="false"/>
+        <style token="LITERAL_BACKQUOTE" fg="008000" bold="true"/>
+        <style token="MARKUP_TAG_DELIMITER" fg="D8D8D8" bold="true"/>
+        <style token="MARKUP_TAG_NAME" fg="CC7832" bold="true"/>
+        <style token="MARKUP_TAG_ATTRIBUTE" fg="6897BB" bold="true"/>
+        <style token="MARKUP_TAG_ATTRIBUTE_VALUE" fg="008000" bold="true"/>
+        <style token="MARKUP_COMMENT" fg="808080" italic="true"/>
+        <style token="MARKUP_DTD" fg="808080"/>
+        <style token="MARKUP_PROCESSING_INSTRUCTION" fg="808080"/>
+        <style token="MARKUP_CDATA" fg="cc6600"/>
+        <style token="MARKUP_CDATA_DELIMITER" fg="008080"/>
+        <style token="MARKUP_ENTITY_REFERENCE" fg="008000"/>
+        <style token="OPERATOR" fg="D8D8D8"/>
+        <style token="PREPROCESSOR" fg="808080"/>
+        <style token="REGEX" fg="008040"/>
+        <style token="SEPARATOR" fg="D8D8D8"/>
+        <style token="VARIABLE" fg="810ca8" bold="true"/>
+        <style token="WHITESPACE" fg="000000"/>
+
+        <style token="ERROR_IDENTIFIER" fg="ff0000"/>
+        <style token="ERROR_NUMBER_FORMAT" fg="ff0000"/>
+        <style token="ERROR_STRING_DOUBLE" fg="ff0000"/>
+        <style token="ERROR_CHAR" fg="ff0000"/>
+    </tokenStyles>
+</RSyntaxTheme>

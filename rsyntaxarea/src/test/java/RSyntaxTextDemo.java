@@ -25,14 +25,14 @@
 import javax.swing.*;
 
 import org.fife.ui.rsyntaxtextarea.RSyntaxTextArea;
-import org.fife.ui.rsyntaxtextarea.Theme;
+import org.fife.ui.rsyntaxtextarea.SyntaxConstants;
 import org.fife.ui.rtextarea.RTextScrollPane;
 
 import ui.ComponentDemo;
 
 import com.github.weisj.darklaf.LafManager;
 import com.github.weisj.darklaf.components.OverlayScrollPane;
-import com.github.weisj.darklaf.extensions.rsyntaxarea.DarkRSyntaxTheme;
+import com.github.weisj.darklaf.extensions.rsyntaxarea.DarklafRSyntaxTheme;
 import com.github.weisj.darklaf.theme.event.ThemeInstalledListener;
 
 public class RSyntaxTextDemo implements ComponentDemo {
@@ -44,12 +44,12 @@ public class RSyntaxTextDemo implements ComponentDemo {
     @Override
     public JComponent createComponent() {
         RSyntaxTextArea textArea = new RSyntaxTextArea(code);
-        textArea.setWhitespaceVisible(true);
+        textArea.setWhitespaceVisible(false);
         textArea.setCodeFoldingEnabled(true);
-        textArea.setSyntaxEditingStyle("text/java");
+        textArea.setSyntaxEditingStyle(SyntaxConstants.SYNTAX_STYLE_JAVA);
         RTextScrollPane sp = new RTextScrollPane(textArea);
         OverlayScrollPane overlayScrollPane = new OverlayScrollPane(sp);
-        DarkRSyntaxTheme syntaxTheme = new DarkRSyntaxTheme(textArea, textArea.getSyntaxScheme());
+        DarklafRSyntaxTheme syntaxTheme = new DarklafRSyntaxTheme(textArea, textArea.getSyntaxScheme());
         syntaxTheme.apply(textArea);
         LafManager.addThemeChangeListener((ThemeInstalledListener) e -> syntaxTheme.apply(textArea));
         return overlayScrollPane;
