@@ -18,7 +18,7 @@ button.variant = ButtonVariant.BORDERLESS
 <dependency>
   <groupId>com.github.weisj</groupId>
   <artifactId>darklaf-extension-kotlin</artifactId>
-  <version>0.2.0</version>
+  <version>0.3.0</version>
 </dependency>
 ````
 ````kotlin
@@ -33,7 +33,7 @@ Provides themes for `RSyntaxTextArea`s matching Darklaf themes.
 <dependency>
   <groupId>com.github.weisj</groupId>
   <artifactId>darklaf-extension-rsyntaxarea</artifactId>
-  <version>0.2.0</version>
+  <version>0.3.0</version>
 </dependency>
 ````
 ````kotlin
