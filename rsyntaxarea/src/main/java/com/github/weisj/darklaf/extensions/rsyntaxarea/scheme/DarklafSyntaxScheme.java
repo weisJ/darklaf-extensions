@@ -66,7 +66,7 @@ public class DarklafSyntaxScheme extends SyntaxScheme {
         } else if (SOLARIZED_DARK_NAME.equals(name)) {
             return new DarklafSyntaxScheme("OneDarkScheme", syntaxScheme);
         } else if (SOLARIZED_LIGHT_NAME.equals(name)) {
-            return new DarklafSyntaxScheme("AltLightScheme", syntaxScheme);
+            return new DarklafSyntaxScheme("EclipseLightScheme", syntaxScheme);
         } else if (HIGH_CONTRAST_DARK_NAME.equals(name)) {
             return new DarklafSyntaxScheme("DarkScheme", syntaxScheme);
         } else if (HIGH_CONTRAST_LIGHT_NAME.equals(name)) {

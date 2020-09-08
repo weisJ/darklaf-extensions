@@ -49,7 +49,7 @@ public class RSyntaxTextDemo implements ComponentDemo {
         textArea.setSyntaxEditingStyle(SyntaxConstants.SYNTAX_STYLE_JAVA);
         RTextScrollPane sp = new RTextScrollPane(textArea);
         OverlayScrollPane overlayScrollPane = new OverlayScrollPane(sp);
-        DarklafRSyntaxTheme syntaxTheme = new DarklafRSyntaxTheme(textArea, textArea.getSyntaxScheme());
+        DarklafRSyntaxTheme syntaxTheme = new DarklafRSyntaxTheme();
         syntaxTheme.apply(textArea);
         LafManager.addThemeChangeListener((ThemeInstalledListener) e -> syntaxTheme.apply(textArea));
         return overlayScrollPane;
