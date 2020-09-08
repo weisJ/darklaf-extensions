@@ -47,8 +47,7 @@ public class DarklafRSyntaxTheme extends RSyntaxTheme {
 
         useSelectionFG = false;
         selectionBG = UIManager.getColor("textSelectionBackground");
-
-        selectionRoundedEdges = true;
+        selectionRoundedEdges = false;
 
         currentLineHighlight = UIManager.getColor("textSelectionBackgroundSecondary");
         fadeCurrentLineHighlight = false;
