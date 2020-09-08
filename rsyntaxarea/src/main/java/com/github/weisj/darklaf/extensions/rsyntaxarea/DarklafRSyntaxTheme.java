@@ -29,7 +29,6 @@ import java.awt.*;
 import javax.swing.*;
 
 import org.fife.ui.rsyntaxtextarea.RSyntaxTextArea;
-import org.fife.ui.rsyntaxtextarea.SyntaxScheme;
 import org.fife.ui.rtextarea.RTextArea;
 
 import com.github.weisj.darklaf.LafManager;
@@ -37,28 +36,8 @@ import com.github.weisj.darklaf.extensions.rsyntaxarea.scheme.DarklafSyntaxSchem
 
 public class DarklafRSyntaxTheme extends RSyntaxTheme {
 
-    protected SyntaxScheme syntaxScheme;
-
-    /**
-     * Creates a theme from an RSyntaxTextArea. It should be contained in an <code>RTextScrollPane</code> to get all
-     * gutter color information.
-     *
-     * @param textArea     the text area.
-     * @param syntaxScheme the syntax scheme.
-     */
-    public DarklafRSyntaxTheme(final RSyntaxTextArea textArea, final SyntaxScheme syntaxScheme) {
-        super(textArea);
-        this.syntaxScheme = syntaxScheme;
-    }
-
-    /**
-     * Creates a theme from an RSyntaxTextArea. It should be contained in an <code>RTextScrollPane</code> to get all
-     * gutter color information.
-     *
-     * @param textArea the text area.
-     */
-    public DarklafRSyntaxTheme(final RSyntaxTextArea textArea) {
-        this(textArea, null);
+    public DarklafRSyntaxTheme() {
+        super(new RSyntaxTextArea());
     }
 
     protected void updateTheme(final RSyntaxTextArea textArea) {
@@ -85,7 +64,7 @@ public class DarklafRSyntaxTheme extends RSyntaxTheme {
 
         hyperlinkFG = UIManager.getColor("hyperlink");
 
-        scheme = DarklafSyntaxScheme.getScheme(textArea, LafManager.getTheme());
+        scheme = DarklafSyntaxScheme.getScheme(textArea.getSyntaxScheme(), LafManager.getTheme());
 
         gutterBackgroundColor = UIManager.getColor("textBackgroundSecondaryInactive");
         gutterBorderColor = UIManager.getColor("borderSecondary");

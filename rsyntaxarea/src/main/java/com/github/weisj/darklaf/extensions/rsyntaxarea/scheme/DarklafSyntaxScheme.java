@@ -27,7 +27,6 @@ package com.github.weisj.darklaf.extensions.rsyntaxarea.scheme;
 import java.io.IOException;
 import java.io.InputStream;
 
-import org.fife.ui.rsyntaxtextarea.RSyntaxTextArea;
 import org.fife.ui.rsyntaxtextarea.SyntaxScheme;
 
 import com.github.weisj.darklaf.extensions.rsyntaxarea.RSyntaxTheme;
@@ -56,9 +55,8 @@ public class DarklafSyntaxScheme extends SyntaxScheme {
         }
     }
 
-    public static DarklafSyntaxScheme getScheme(final RSyntaxTextArea textArea, final Theme theme) {
+    public static DarklafSyntaxScheme getScheme(final SyntaxScheme syntaxScheme, final Theme theme) {
         String name = theme.getName();
-        SyntaxScheme syntaxScheme = textArea.getSyntaxScheme();
         if (INTELLIJ_NAME.equals(name)) {
             return new DarklafSyntaxScheme("IntelliJScheme", syntaxScheme);
         } else if (DARCULA_NAME.equals(name)) {
