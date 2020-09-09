@@ -37,7 +37,11 @@ import com.github.weisj.darklaf.extensions.rsyntaxarea.scheme.DarklafSyntaxSchem
 public class DarklafRSyntaxTheme extends RSyntaxTheme {
 
     public DarklafRSyntaxTheme() {
-        super(new RSyntaxTextArea());
+        this(new RSyntaxTextArea());
+    }
+
+    public DarklafRSyntaxTheme(final RSyntaxTextArea textArea) {
+        super(textArea);
     }
 
     protected void updateTheme(final RSyntaxTextArea textArea) {
