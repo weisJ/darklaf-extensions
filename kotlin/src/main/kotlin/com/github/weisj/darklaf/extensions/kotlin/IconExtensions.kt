@@ -25,6 +25,7 @@
 package com.github.weisj.darklaf.extensions.kotlin
 
 import com.github.weisj.darklaf.properties.icons.IconLoader
+import com.github.weisj.darklaf.properties.icons.IconResolver
 import java.awt.Window
 import javax.swing.Icon
 import kotlin.reflect.KProperty
@@ -37,7 +38,7 @@ operator fun IconLoader.getValue(thisRef: Any?, property: KProperty<*>): Icon {
     return getIcon(property.name)
 }
 
-fun IconLoader.loadIcon(
+fun IconResolver.loadIcon(
     path: String,
     width: Int,
     height: Int,
@@ -56,24 +57,33 @@ fun iconLoader(path: String, uiAware: Boolean = false, themed: Boolean = false):
 }
 
 class IconDelegate(
-    private val iconLoader: IconLoader?,
+    private var iconLoader: IconResolver?,
     private val path: String,
     private val width: Int,
     private val height: Int,
     private val uiAware: Boolean,
     private val themed: Boolean
 ) {
+    private lateinit var icon: Icon
 
     operator fun getValue(thisRef: Any?, property: KProperty<*>): Icon {
+        if (::icon.isInitialized) return icon
         val validSize = width >= 0 && height >= 0
-        return (iconLoader ?: IconLoader.get(thisRef?.javaClass)).let {
-            if (validSize) {
-                if (uiAware) it.getUIAwareIcon(path, width, height)
-                else it.getIcon(path, width, height, themed)
-            } else {
-                if (uiAware) it.getUIAwareIcon(path)
-                else it.getIcon(path, themed)
-            }
+
+        val loader = iconLoader ?: run {
+            val caller = thisRef?.javaClass
+                ?: StackWalker.getInstance(StackWalker.Option.RETAIN_CLASS_REFERENCE).callerClass
+            IconLoader.get(caller)
         }
+
+        icon = if (validSize) {
+            if (uiAware) loader.getUIAwareIcon(path, width, height)
+            else loader.getIcon(path, width, height, themed)
+        } else {
+            if (uiAware) loader.getUIAwareIcon(path)
+            else loader.getIcon(path, themed)
+        }
+
+        return icon
     }
 }
