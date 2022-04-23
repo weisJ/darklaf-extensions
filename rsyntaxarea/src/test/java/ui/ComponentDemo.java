@@ -37,10 +37,10 @@ import javax.swing.event.MenuEvent;
 import javax.swing.event.MenuListener;
 
 import com.github.weisj.darklaf.LafManager;
-import com.github.weisj.darklaf.icons.IconLoader;
+import com.github.weisj.darklaf.properties.icons.IconLoader;
 import com.github.weisj.darklaf.settings.ThemeSettings;
 import com.github.weisj.darklaf.theme.Theme;
-import com.github.weisj.darklaf.theme.info.PreferredThemeStyle;
+import com.github.weisj.darklaf.theme.spec.PreferredThemeStyle;
 
 public interface ComponentDemo {
 
@@ -194,7 +194,8 @@ public interface ComponentDemo {
                 @Override
                 public void actionPerformed(final ActionEvent e) {
                     Theme current = LafManager.getTheme();
-                    LafManager.install(theme.derive(current.getFontSizeRule(), current.getAccentColorRule()));
+                    LafManager.install(theme.derive(current.getFontSizeRule(), current.getFontPrototype(),
+                                                    current.getAccentColorRule()));
                 }
             };
             setAction(action);

@@ -25,7 +25,7 @@
 package icon
 
 import com.github.weisj.darklaf.extensions.kotlin.iconLoader
-import com.github.weisj.darklaf.icons.UIAwareIcon
+import com.github.weisj.darklaf.properties.icons.UIAwareIcon
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 
