@@ -48,16 +48,18 @@ fun IconResolver.loadIcon(
     return IconDelegate(this, path, width, height, uiAware, themed)
 }
 
-fun iconLoader(path: String, width: Int, height: Int, uiAware: Boolean = false, themed: Boolean = false): IconDelegate {
-    return IconDelegate(null, path, width, height, uiAware, themed)
+@Suppress("unused")
+inline fun <reified T> T.iconLoader(path: String, width: Int, height: Int, uiAware: Boolean = false, themed: Boolean = false): IconDelegate {
+    return IconDelegate(IconLoader.get(T::class.java), path, width, height, uiAware, themed)
 }
 
-fun iconLoader(path: String, uiAware: Boolean = false, themed: Boolean = false): IconDelegate {
-    return IconDelegate(null, path, -1, -1, uiAware, themed)
+@Suppress("unused")
+inline fun <reified T> T.iconLoader(path: String, uiAware: Boolean = false, themed: Boolean = false): IconDelegate {
+    return IconDelegate(IconLoader.get(T::class.java), path, -1, -1, uiAware, themed)
 }
 
 class IconDelegate(
-    private var iconLoader: IconResolver?,
+    private var iconLoader: IconResolver,
     private val path: String,
     private val width: Int,
     private val height: Int,
@@ -67,21 +69,16 @@ class IconDelegate(
     private lateinit var icon: Icon
 
     operator fun getValue(thisRef: Any?, property: KProperty<*>): Icon {
+
         if (::icon.isInitialized) return icon
         val validSize = width >= 0 && height >= 0
 
-        val loader = iconLoader ?: run {
-            val caller = thisRef?.javaClass
-                ?: StackWalker.getInstance(StackWalker.Option.RETAIN_CLASS_REFERENCE).callerClass
-            IconLoader.get(caller)
-        }
-
         icon = if (validSize) {
-            if (uiAware) loader.getUIAwareIcon(path, width, height)
-            else loader.getIcon(path, width, height, themed)
+            if (uiAware) iconLoader.getUIAwareIcon(path, width, height)
+            else iconLoader.getIcon(path, width, height, themed)
         } else {
-            if (uiAware) loader.getUIAwareIcon(path)
-            else loader.getIcon(path, themed)
+            if (uiAware) iconLoader.getUIAwareIcon(path)
+            else iconLoader.getIcon(path, themed)
         }
 
         return icon
