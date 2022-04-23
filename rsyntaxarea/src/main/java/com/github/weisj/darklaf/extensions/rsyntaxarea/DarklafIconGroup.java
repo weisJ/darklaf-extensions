@@ -28,8 +28,7 @@ import javax.swing.*;
 
 import org.fife.ui.rtextarea.IconGroup;
 
-import com.github.weisj.darklaf.icons.IconLoader;
-import com.github.weisj.darklaf.util.DarkUIUtil;
+import com.github.weisj.darklaf.iconset.AllIcons;
 
 public class DarklafIconGroup extends IconGroupDelegate {
 
@@ -41,21 +40,31 @@ public class DarklafIconGroup extends IconGroupDelegate {
 
     @Override
     public Icon getIcon(final String name) {
-        IconLoader iconLoader = DarkUIUtil.ICON_LOADER;
         switch (name) {
             case "cut" :
+                return AllIcons.Action.Cut.get(SIZE, SIZE);
             case "cutDisabled" :
+                return AllIcons.Action.Cut.disabled(SIZE, SIZE);
             case "copy" :
+                return AllIcons.Action.Copy.get(SIZE, SIZE);
             case "copyDisabled" :
+                return AllIcons.Action.Copy.disabled(SIZE, SIZE);
             case "paste" :
+                return AllIcons.Action.Paste.get(SIZE, SIZE);
             case "pasteDisabled" :
+                return AllIcons.Action.Paste.disabled(SIZE, SIZE);
             case "delete" :
+                return AllIcons.Action.Delete.get(SIZE, SIZE);
             case "deleteDisabled" :
+                return AllIcons.Action.Delete.disabled(SIZE, SIZE);
             case "undo" :
+                return AllIcons.Action.Undo.get(SIZE, SIZE);
             case "undoDisabled" :
+                return AllIcons.Action.Undo.disabled(SIZE, SIZE);
             case "redo" :
+                return AllIcons.Action.Redo.get(SIZE, SIZE);
             case "redoDisabled" :
-                return iconLoader.getIcon("menu/" + name + ".svg", SIZE, SIZE, true);
+                return AllIcons.Action.Redo.disabled(SIZE, SIZE);
             default :
                 return super.getIcon(name);
         }

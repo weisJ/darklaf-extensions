@@ -24,7 +24,7 @@
  */
 package com.github.weisj.darklaf.extensions.kotlin
 
-import com.github.weisj.darklaf.icons.IconLoader
+import com.github.weisj.darklaf.properties.icons.IconLoader
 import java.awt.Window
 import javax.swing.Icon
 import kotlin.reflect.KProperty
